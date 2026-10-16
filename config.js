@@ -1,4 +1,4 @@
 // Edit these values
-const CONTRACT_ADDRESS = "0x5a12a65e0d46e13d8794ea8854f4513a8ea2e67b";
+const CONTRACT_ADDRESS = "0x741d68d9e3a3d433bc5b3e9fc635ab2662676887";
 const CHAIN = "Robinhood Chain";
 const X_LINK = "https://x.com/DUOonRobinhood";
