@@ -1,0 +1,12 @@
+const valid=/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(CONTRACT_ADDRESS);
+const buy=valid?"https://jup.ag/swap/SOL-"+CONTRACT_ADDRESS:"https://jup.ag/";
+document.querySelectorAll(".buy").forEach(a=>{a.href=buy;a.target="_blank";a.rel="noopener"});
+document.querySelectorAll(".xlink").forEach(a=>{a.href=X_LINK;a.target="_blank";a.rel="noopener"});
+document.querySelectorAll(".ca").forEach(e=>e.textContent=CONTRACT_ADDRESS);
+document.querySelectorAll(".copy").forEach(b=>b.onclick=async()=>{try{await navigator.clipboard.writeText(CONTRACT_ADDRESS)}catch{const t=document.createElement("textarea");t.value=CONTRACT_ADDRESS;document.body.appendChild(t);t.select();document.execCommand("copy");t.remove()}const o=b.textContent;b.textContent="Copied!";setTimeout(()=>b.textContent=o,1400)});
+document.getElementById("yr").textContent=new Date().getFullYear();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+const lb=document.getElementById("lb"),lbi=lb.querySelector("img");
+document.querySelectorAll(".gallery button").forEach(b=>b.onclick=()=>{lbi.src=b.dataset.full;lb.showModal()});
+lb.onclick=()=>lb.close();
