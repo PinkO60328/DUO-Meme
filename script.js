@@ -1,5 +1,7 @@
-const valid=/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(CONTRACT_ADDRESS);
-const buy=valid?"https://jup.ag/swap/SOL-"+CONTRACT_ADDRESS:"https://jup.ag/";
+const valid=/^0x[0-9a-fA-F]{40}$/.test(CONTRACT_ADDRESS);
+// Robinhood Chain (chain ID 4663). Valid CA -> Uniswap swap for the token; otherwise the generic swap page.
+const buy=valid?"https://app.uniswap.org/swap?outputCurrency="+CONTRACT_ADDRESS:"https://app.uniswap.org/swap";
+document.querySelectorAll(".scan").forEach(a=>{if(valid)a.href="https://robinhoodchain.blockscout.com/token/"+CONTRACT_ADDRESS;else a.remove()});
 document.querySelectorAll(".buy").forEach(a=>{a.href=buy;a.target="_blank";a.rel="noopener"});
 document.querySelectorAll(".xlink").forEach(a=>{a.href=X_LINK;a.target="_blank";a.rel="noopener"});
 document.querySelectorAll(".ca").forEach(e=>e.textContent=CONTRACT_ADDRESS);
